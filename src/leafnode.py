@@ -5,7 +5,7 @@ class LeafNode(HTMLNode):
 
   def to_html(self):
     if not self.value:
-      raise ValueError("value does not exist")
+      raise ValueError("Value does not exist")
     if not self.tag:
       return self.value
     return f"<{self.tag}>{self.value}</{self.tag}>"
