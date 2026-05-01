@@ -8,7 +8,7 @@ class BlockType(Enum):
     unordered_list = "unordered_list"
     ordered_list = "ordered_list"
 
-def block_to_block_type(block):
+def block_to_block_type(block) -> BlockType:
   items = block.split("\n")
   if block.startswith(("# ", "## ", "### ", "#### ", "##### ", "###### ")):
     return BlockType.heading
@@ -28,7 +28,7 @@ def block_to_block_type(block):
     return BlockType.ordered_list
   return BlockType.paragraph
 
-def markdown_to_blocks(markdown):
+def markdown_to_blocks(markdown: str) -> list[str]:
     blocks = markdown.split("\n\n")
     filtered_blocks = []
     for block in blocks:
