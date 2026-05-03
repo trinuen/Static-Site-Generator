@@ -10,10 +10,10 @@ class HTMLNode:
 
   def props_to_html(self):
     res = []
-    if not self.props:
+    if self.props is None:
       return ""
     for k, v in self.props.items():
-      res.append(f'{k}="{v}"')
+      res.append(f' {k}="{v}"')
     return " ".join(res)
 
   def __repr__(self):
@@ -24,7 +24,7 @@ class LeafNode(HTMLNode):
     super().__init__(tag, value, None, props)
 
   def to_html(self):
-    if not self.value:
+    if self.value is None:
       raise ValueError("Value does not exist")
     if not self.tag:
       return self.value

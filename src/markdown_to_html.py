@@ -67,13 +67,9 @@ def get_heading_children(text):
   return text_to_children(text)
 
 def get_code_children(text):
-  # print(text.split("```"))
   text = text.replace("```", "")
-  # print(repr(text))
   textnode = TextNode(text, TextType.PLAIN)
-  # print(textnode)
   htmlnode = text_node_to_html_node(textnode)
-  # print(htmlnode)
   htmlnode.tag = "code"
   return [htmlnode]
 
@@ -92,4 +88,3 @@ def get_ordered_items(text):
   for item in items:
     res.extend([ParentNode("li", text_to_children(item))])
   return res
-
