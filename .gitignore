@@ -1,3 +1,5 @@
 __pycache__/
 test_*.py
-public/
+build.sh
+test.sh
+main.sh
